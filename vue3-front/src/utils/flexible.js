@@ -1,9 +1,14 @@
 import { computed } from 'vue'
 import { PC_DEVICE_WIDTH } from '../constants/index.js'
+import { useWindowSize } from '@vueuse/core'
+
+const { width } = useWindowSize()
+
 // 判断是否是移动设备 --本地方便调试使用
 export const isMobileTerminal = computed(() => {
-  console.log('clientWidth:' + document.documentElement.clientWidth)
-  return document.documentElement.clientWidth < PC_DEVICE_WIDTH
+  console.log('clientWidth:' + width.value)
+  // width是一个响应式的值 所以用value
+  return width.value < PC_DEVICE_WIDTH
 })
 
 
