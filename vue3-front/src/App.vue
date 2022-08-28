@@ -1,8 +1,7 @@
 <template>
-  <div>{{ isMobileTerminal }}</div>
+  <router-view/>
 </template>
 <script setup>
-import { isMobileTerminal } from './utils/flexible.js'
 
 
 </script>
