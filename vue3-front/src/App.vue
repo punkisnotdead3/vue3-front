@@ -1,31 +1,15 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img  src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-</template>
+  <div class="bg-slate-600 rounded-2xl p-8 md:flex md:p-0">
+    <img class="w-24 h-24 rounded-full mx-auto md:w-48 md:h-auto md:rounded-none" src="./images/芒果.jpeg">
+    <div class="pt-6 text-center space-y-4 md:p-8 md:text-left">
+      <p class="text-lg font-medium text-zinc-50">你啊点啊十大十大爱上打算的阿萨德南京啊谁发的花费很多时间风华绝代撒符合大舅顺丰还是多福多寿发的发</p>
+      <div class="font-medium">
+        <div class="text-sky-400">LGD_sunday</div>
+        <div class="text-slate-500">vue3前端解决方案</div>
+      </div>
+    </div>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+  </div>
+</template>
+<script setup></script>
+<style lang="scss" scoped></style>
