@@ -1,5 +1,7 @@
 <template>
-  <router-view/>
+  <div class='bg-amber-200'>
+    <router-view/>
+  </div>
 </template>
 <script setup>
 

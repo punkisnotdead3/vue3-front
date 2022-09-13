@@ -1,11 +1,11 @@
 <template>
-<div> 我是移动端首页</div>
+  <div class='bg-blue-500'>
+    <navigation-vue></navigation-vue>
+  </div>
 </template>
 
-<script>
-export default {
-  name: 'index'
-}
+<script setup>
+import navigationVue from './components/navigation/index.vue'
 </script>
 
 <style scoped>
