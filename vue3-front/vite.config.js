@@ -16,7 +16,7 @@ export default defineConfig({
       // 代理所有/api的请求
       '/api': {
         // 代理请求之后的请求地址
-        target: 'https://baidu.com/api',
+        target: 'http://192.168.1.108:8008',
         //处理跨域
         changeOrigin: true
       }
