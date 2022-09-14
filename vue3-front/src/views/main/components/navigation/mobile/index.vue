@@ -3,6 +3,14 @@
 </template>
 
 <script setup>
+import { getCategory } from '../../../../../api/category.js'
+
+const getCategoryData = async () => {
+  const res = await getCategory()
+  console.log(res)
+}
+
+getCategoryData()
 </script>
 
 <style scoped>
