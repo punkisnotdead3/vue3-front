@@ -1,16 +1,23 @@
 <template>
-  <div class='bg-red-900'>我是移动端下的navigation</div>
+  <div class='bg-red-900'>
+    <ul>
+      <li v-for="item in data" :key="item.id" >{{item.name}}</li>
+    </ul>
+
+
+  </div>
 </template>
 
 <script setup>
-import { getCategory } from '../../../../../api/category.js'
+  //vite 构建的项目 可以直接用defineProps方法
+ defineProps({
+  data:{
+    type:Array,
+    required:true
+  }
+ }) 
 
-const getCategoryData = async () => {
-  const res = await getCategory()
-  console.log(res)
-}
 
-getCategoryData()
 </script>
 
 <style scoped>
