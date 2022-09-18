@@ -12,6 +12,10 @@ module.exports = {
         xl: ['0.65rem', '0.75rem']
       }
     },
+    // 白色阴影
+    boxShadow:{
+      'l-white':'-10px 0 10px white'
+    }
   },
   plugins: [],
 }
