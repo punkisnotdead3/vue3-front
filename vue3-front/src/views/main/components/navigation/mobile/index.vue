@@ -23,6 +23,9 @@
         v-for="(item, index) in data"
         :key="item.id"
         class="shrink-0 px-1.5 py-0.5 z-10 duration-200 last:mr-4"
+        :class="{
+          'text-zinc-100': currentCategoryIndex === index
+        }"
         :ref="setItemRef"
         @click="onItemClick(index)"
       >
@@ -55,6 +58,7 @@ const setItemRef = (el) => {
   console.log(el)
   if (el) {
     itemRefs.push(el)
+    console.log('size:' + itemRefs.length)
   }
 }
 // 数据改变后，dom变化前 如果不重置 则每次dom变化 都会push 则数组就不对了
@@ -74,9 +78,10 @@ const onItemClick = (index) => {
 // watch监听
 watch(currentCategoryIndex, (val) => {
   const { left, width } = itemRefs[val].getBoundingClientRect()
+  // console.log('style:' + ulTarget.getBoundingClientRect().top)
   sliderStyle.value = {
-    // 滑块的位置= ul 横向滚动的位置+当前元素的偏移量
-    transform: `translateX(${ulScrollLeft.value + left}px)`,
+    // 滑块的位置= ul 横向滚动的位置+当前元素的偏移量- ul的padding
+    transform: `translateX(${ulScrollLeft.value + left - 10}px)`,
     width: width + 'px'
   }
 })
