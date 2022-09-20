@@ -2,7 +2,7 @@
   <div class="bg-white sticky top-0 left-0 z-10">
     <ul
       class="relative flex overflow-auto p-1 text-xs text-zinc-600"
-      :ref="ulTarget"
+      ref="ulTarget"
     >
       <!-- 滑块 -->
       <li
@@ -55,20 +55,20 @@ const currentCategoryIndex = ref(0)
 let itemRefs = []
 // 获取所有item元素
 const setItemRef = (el) => {
-  console.log(el)
+  // console.log(el)
   if (el) {
     itemRefs.push(el)
-    console.log('size:' + itemRefs.length)
+    // console.log('size:' + itemRefs.length)
   }
 }
 // 数据改变后，dom变化前 如果不重置 则每次dom变化 都会push 则数组就不对了
 onBeforeUpdate(() => {
   itemRefs = []
 })
-
 const ulTarget = ref(null)
+
 // 拿到ul的 滚动位置
-const { x: ulScrollLeft } = useScroll(ulTarget)
+const { x, y, isScrolling, arrivedState } = useScroll(ulTarget)
 
 // item 点击事件
 const onItemClick = (index) => {
@@ -78,10 +78,9 @@ const onItemClick = (index) => {
 // watch监听
 watch(currentCategoryIndex, (val) => {
   const { left, width } = itemRefs[val].getBoundingClientRect()
-  // console.log('style:' + ulTarget.getBoundingClientRect().top)
   sliderStyle.value = {
     // 滑块的位置= ul 横向滚动的位置+当前元素的偏移量- ul的padding
-    transform: `translateX(${ulScrollLeft.value + left - 10}px)`,
+    transform: `translateX(${x.value + left - 10}px)`,
     width: width + 'px'
   }
 })
