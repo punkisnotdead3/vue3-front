@@ -17,6 +17,7 @@
           class="w-1.5 h-1.5"
           name="Hamburger"
           color="black"
+          @click="onShowPopup"
         ></m-svg-icon>
       </li>
       <li
@@ -32,7 +33,7 @@
         {{ item.name }}
       </li>
     </ul>
-    <m-popup></m-popup>
+    <m-popup v-if="isVisiable"></m-popup>
   </div>
 </template>
 
@@ -85,6 +86,11 @@ watch(currentCategoryIndex, (val) => {
     width: width + 'px'
   }
 })
+
+const isVisiable = ref(false)
+const onShowPopup = () => {
+  isVisiable.value = true
+}
 </script>
 
 <style scoped></style>
