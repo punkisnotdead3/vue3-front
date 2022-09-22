@@ -33,7 +33,8 @@
         {{ item.name }}
       </li>
     </ul>
-    <m-popup v-if="isVisiable"></m-popup>
+    <!-- 这里要注意vue3的 v-model 双向绑定 -->
+    <m-popup v-model="isVisiable"></m-popup>
   </div>
 </template>
 

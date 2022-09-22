@@ -30,7 +30,6 @@ const props = defineProps({
   modelValue: {
     required: true,
     type: Boolean,
-    default: true
   }
 })
 
