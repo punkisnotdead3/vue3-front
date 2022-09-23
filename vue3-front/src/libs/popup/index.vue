@@ -26,23 +26,34 @@
 </template>
 
 <script setup>
+import { watch } from '@vue/runtime-core'
+import { useScrollLock } from '@vueuse/core'
+
 const props = defineProps({
   modelValue: {
     required: true,
-    type: Boolean,
+    type: Boolean
   }
 })
 
 const emits = defineEmits(['update:modelValue'])
 
 const dismiss = () => {
-  console.log('u click dismiss')
   emits('update:modelValue', false)
-  // todo wuyue why not change ？？？？？？
-  console.log('u click dismiss' + props.modelValue)
 
   // props.modelValue = false
 }
+
+const isLocked = useScrollLock(document.body)
+watch(
+  () => props.modelValue,
+  (val) => {
+    isLocked.value = val
+  },
+  {
+    immediate: true
+  }
+)
 </script>
 
 <style scoped lang="scss">
