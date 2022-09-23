@@ -35,7 +35,7 @@
     </ul>
     <!-- 这里要注意vue3的 v-model 双向绑定 -->
     <m-popup v-model="isVisiable">
-      <menu-vue :categorys="data"></menu-vue>
+      <menu-vue :categorys="data" @onItemClick="onItemClick"></menu-vue>
     </m-popup>
   </div>
 </template>
@@ -43,7 +43,7 @@
 <script setup>
 import { onBeforeUpdate, ref, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
-import MenuVue  from '@/views/main/components/menu/index.vue'
+import MenuVue from '@/views/main/components/menu/index.vue'
 //vite 构建的项目 可以直接用defineProps方法
 defineProps({
   data: {
@@ -79,6 +79,7 @@ const { x, y, isScrolling, arrivedState } = useScroll(ulTarget)
 // item 点击事件
 const onItemClick = (index) => {
   currentCategoryIndex.value = index
+  isVisiable.value = false
 }
 
 // watch监听
