@@ -35,7 +35,7 @@
     </ul>
     <!-- 这里要注意vue3的 v-model 双向绑定 -->
     <m-popup v-model="isVisiable">
-      <div>我是内容</div>
+      <menu-vue :categorys="data"></menu-vue>
     </m-popup>
   </div>
 </template>
@@ -43,6 +43,7 @@
 <script setup>
 import { onBeforeUpdate, ref, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
+import MenuVue  from '@/views/main/components/menu/index.vue'
 //vite 构建的项目 可以直接用defineProps方法
 defineProps({
   data: {

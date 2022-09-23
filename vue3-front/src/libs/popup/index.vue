@@ -43,7 +43,8 @@ const isLocked = useScrollLock(document.body)
 watch(
   () => isVisiable,
   (val) => {
-    isLocked.value = val
+    // 暂时注释掉 因为这个会阻止 弹窗弹起的时候 滑动
+   // isLocked.value = val
   },
   {
     immediate: true
