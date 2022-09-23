@@ -5,8 +5,8 @@
       <transition name="fade">
         <!-- 蒙版 -->
         <div
-          v-if="modelValue"
-          @click="dismiss()"
+          v-if="isVisiable"
+          @click="isVisiable = false"
           class="w-screen h-screen bg-zinc-900/80 z-40 fixed top-0 left-0"
         ></div>
       </transition>
@@ -14,7 +14,7 @@
       <transition name="popup-down-up">
         <!-- 内容 -->
         <div
-          v-if="modelValue"
+          v-if="isVisiable"
           v-bind="$attrs"
           class="w-screen bg-white z-50 fixed bottom-0"
         >
@@ -27,7 +27,7 @@
 
 <script setup>
 import { watch } from '@vue/runtime-core'
-import { useScrollLock } from '@vueuse/core'
+import { useScrollLock, useVModel } from '@vueuse/core'
 
 const props = defineProps({
   modelValue: {
@@ -36,17 +36,12 @@ const props = defineProps({
   }
 })
 
-const emits = defineEmits(['update:modelValue'])
-
-const dismiss = () => {
-  emits('update:modelValue', false)
-
-  // props.modelValue = false
-}
+// 是一个响应式数据 当他发生变化时，会自动触发 emit 修改modelvalue
+const isVisiable = useVModel(props)
 
 const isLocked = useScrollLock(document.body)
 watch(
-  () => props.modelValue,
+  () => isVisiable,
   (val) => {
     isLocked.value = val
   },
