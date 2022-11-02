@@ -21,8 +21,8 @@ export default defineConfig({
     proxy: {
       // 代理所有/api的请求
       '/api': {
-        // 代理请求之后的请求地址
-        target: 'http://192.168.1.108:8000',
+        // 代理请求之后的请求地址 这里每次anywhere运行的地址都不太一样，注意修改一下
+        target: 'http://192.168.1.109:8000',
         //处理跨域
         changeOrigin: true
       }

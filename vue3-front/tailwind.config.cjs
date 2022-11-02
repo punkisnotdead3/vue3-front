@@ -13,8 +13,12 @@ module.exports = {
       }
     },
     // 白色阴影
-    boxShadow:{
-      'l-white':'-10px 0 10px white'
+    boxShadow: {
+      'l-white': '-10px 0 10px white'
+    },
+    height: {
+      header: '72px',
+      main: 'calc(100vh - 72px)'
     }
   },
   plugins: [],
